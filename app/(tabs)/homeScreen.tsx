@@ -32,8 +32,8 @@ export default function HomeScreen() {
   const fetchLHP = async () => {
     try {
       const [resLHP, resGV] = await Promise.all([
-        fetch("http://192.168.1.101:3001/lophophan"),
-        fetch("http://192.168.1.101:3001/giangvien"),
+        fetch("http://192.168.1.104:3001/lophophan"),
+        fetch("http://192.168.1.104:3001/giangvien"),
       ]);
       const lhpData = await resLHP.json();
       const gvData = await resGV.json();

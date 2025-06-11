@@ -1,7 +1,7 @@
 import CustomHeader from "@/components/CustomHeader";
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import { LopHocPhanProvider } from "./_context"; // 👈 wrap context ở đây
+import { LopHocPhanProvider } from "./_context";
 
 export default function Layout() {
   return (
@@ -11,8 +11,14 @@ export default function Layout() {
           header: () => <CustomHeader />,
           tabBarStyle: {
             backgroundColor: "#000",
-            paddingBottom: 6,
-            paddingTop: 6,
+            height: 58,
+            paddingBottom: 4,
+            paddingTop: 2,
+            borderTopColor: "#333",
+            borderTopWidth: 0.5,
+          },
+          tabBarLabelStyle: {
+            fontSize: 12,
           },
         }}
       >
@@ -21,7 +27,7 @@ export default function Layout() {
           options={{
             title: "Bảng tin",
             tabBarIcon: ({ color }) => (
-              <Ionicons name="home" size={24} color={color} />
+              <Ionicons name="home" size={22} color={color} />
             ),
           }}
         />
@@ -30,7 +36,7 @@ export default function Layout() {
           options={{
             title: "Bài tập",
             tabBarIcon: ({ color }) => (
-              <Ionicons name="book" size={24} color={color} />
+              <Ionicons name="book" size={22} color={color} />
             ),
           }}
         />
@@ -39,21 +45,11 @@ export default function Layout() {
           options={{
             title: "Người dùng",
             tabBarIcon: ({ color }) => (
-              <Ionicons name="people" size={24} color={color} />
+              <Ionicons name="people" size={22} color={color} />
             ),
           }}
         />
-        {/* <Tabs.Screen
-        name="(tabs)/material"
-        options={{
-          title: "Tài liệu",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="document-text" size={24} color={color} />
-          ),
-        }}
-      /> */}
       </Tabs>
-      
     </LopHocPhanProvider>
   );
 }

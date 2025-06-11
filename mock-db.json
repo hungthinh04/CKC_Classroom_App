@@ -10,10 +10,11 @@
     {
       "id": 2,
       "email": "sv1@ckc.edu.vn",
-      "matKhau": "654321",
+      "matKhau": "123456",
       "quyen": 1,
       "trangThai": 1
     }
+
   ],
   "sinhvien": [
     {
@@ -26,6 +27,32 @@
       "sdt": "0123456789",
       "cccd": "123456789012",
       "maTK": 2,
+      "diaChi": "123 Le Loi",
+      "trangThai": 1
+    },
+    {
+      "id": 2,
+      "maSV": 20231235,
+      "hoSV": "Nguyen",
+      "tenSV": "Van B",
+      "ngaySinh": "2002-05-02",
+      "gioiTinh": 1,
+      "sdt": "0123456785",
+      "cccd": "1234567890133",
+      "maTK": 3,
+      "diaChi": "123 Hong BangBang",
+      "trangThai": 1
+    },
+    {
+      "id": 3,
+      "maSV": 20231236,
+      "hoSV": "Nguyen",
+      "tenSV": "Van C",
+      "ngaySinh": "2002-05-03",
+      "gioiTinh": 1,
+      "sdt": "0123456786",
+      "cccd": "123456789014",
+      "maTK": 4,
       "diaChi": "123 Le Loi",
       "trangThai": 1
     }
@@ -92,12 +119,38 @@
       "ngayKetThuc": "2024-09-12",
       "gioKetThuc": "23:59:59",
       "trangThai": 1
+    },
+    {
+      "id": 3,
+      "tieuDe": "Bai tap 3",
+      "noiDung": "Làm quen với Navigation",
+      "ngayTao": "2024-09-1010",
+      "loaiBV": 1,
+      "maTK": 1,
+      "maLHP": 1,
+      "maCD": 1,
+      "ngayKetThuc": "2024-09-12",
+      "gioKetThuc": "23:59:59",
+      "trangThai": 1
     }
+    
   ],
   "sinhvien_lhp": [
     {
       "id": 1,
       "maSV": 20231234,
+      "maLHP": 1,
+      "trangThai": 1
+    },
+    {
+      "id": 2,
+      "maSV": 20231235,
+      "maLHP": 1,
+      "trangThai": 1
+    },
+    {
+      "id": 3,
+      "maSV": 20231236,
       "maLHP": 1,
       "trangThai": 1
     }
