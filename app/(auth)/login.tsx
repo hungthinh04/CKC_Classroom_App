@@ -10,7 +10,7 @@ export default function LoginScreen() {
 
   const handleLogin = async () => {
     try {
-      const res = await fetch("http://192.168.1.101:3001/users");
+      const res = await fetch("http://192.168.1.104:3001/users");
       const users = await res.json();
 
       const user = users.find(
