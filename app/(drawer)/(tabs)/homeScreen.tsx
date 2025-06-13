@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import { router } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
   Image,
@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { useAuth } from "../../stores/useAuth";
+import { useAuth } from "../../../stores/useAuth";
 
 type LopHocPhan = {
   id: number;
@@ -25,6 +25,7 @@ export default function HomeScreen() {
   const { user, logout } = useAuth();
   const [lophocphan, setLophocphan] = useState<LopHocPhan[]>([]);
 
+  const navigation = useNavigation();
   const handleLogout = async () => {
     await logout();
     router.replace("/(auth)/login");
@@ -32,8 +33,8 @@ export default function HomeScreen() {
   const fetchLHP = async () => {
     try {
       const [resLHP, resGV] = await Promise.all([
-        fetch("http://192.168.1.101:3001/lophophan"),
-        fetch("http://192.168.1.101:3001/giangvien"),
+        fetch("http://192.168.1.102:3001/lophophan"),
+        fetch("http://192.168.1.102:3001/giangvien"),
       ]);
       const lhpData = await resLHP.json();
       const gvData = await resGV.json();
@@ -60,7 +61,12 @@ export default function HomeScreen() {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Ionicons name="menu" size={24} color="white" />
+        <Ionicons
+          name="menu"
+          size={24}
+          color="white"
+          onPress={() => navigation.openDrawer()}
+        />
         <Text style={styles.title}>
           <Text style={{ fontWeight: "500" }}>CKC</Text> Classroom
         </Text>
@@ -95,13 +101,13 @@ export default function HomeScreen() {
             style={styles.card}
             onPress={() =>
               router.push({
-                pathname: "/lopHocPhan/[id]/(tabs)/dashboard",
-                params: { id: cls.id.toString(), tenLHP: cls.tenLHP, }, // 👈 truyền tên lớp
+                pathname: "/(drawer)/(class)/lopHocPhan/[id]/(tabs)/dashboard",
+                params: { id: cls.id.toString(), tenLHP: cls.tenLHP }, // 👈 truyền tên lớp
               })
             }
           >
             <Image
-              source={require("../../assets/images/icon.png")}
+              source={require("../../../assets/images/icon.png")}
               style={styles.bgImage}
             />
             <View style={styles.overlay} />

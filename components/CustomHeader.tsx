@@ -1,7 +1,7 @@
-import { useLopHocPhan } from "@/app/lopHocPhan/[id]/_context";
+import { useLopHocPhan } from "@/context/_context";
 import { Ionicons } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useNavigation } from "expo-router";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -9,10 +9,12 @@ export default function CustomHeader() {
   const route = useRoute();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const [title, setTitle] = useState("Lớp học phần");
+
+  const navigation = useNavigation();
   const { tenLHP } = useLopHocPhan();
   useEffect(() => {
     if (!id) return;
-    fetch(`http://192.168.1.101:3001/lophophan/${id}`)
+    fetch(`http://192.168.1.102:3001/lophophan/${id}`)
       .then((res) => res.json())
       .then((data) => setTitle(data.tenLHP));
   }, [id]);
@@ -59,7 +61,12 @@ export default function CustomHeader() {
     <View style={styles.container}>
       {/* Menu trái */}
       <TouchableOpacity>
-        <Ionicons name="menu" size={24} color="#ccc" />
+        <Ionicons
+          name="menu"
+          size={24}
+          color="#ccc"
+          onPress={() => navigation.openDrawer()}
+        />
       </TouchableOpacity>
 
       {/* Tên lớp (ở giữa) */}

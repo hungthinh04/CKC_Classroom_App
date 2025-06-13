@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "gv1@ckc.edu.vn",
       "matKhau": "123456",
       "quyen": 0,
       "trangThai": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "sv1@ckc.edu.vn",
       "matKhau": "654321",
       "quyen": 1,
@@ -17,7 +17,7 @@
   ],
   "sinhvien": [
     {
-      "id": 1,
+      "id": "1",
       "maSV": 20231234,
       "hoSV": "Nguyen",
       "tenSV": "Van A",
@@ -32,7 +32,7 @@
   ],
   "giangvien": [
     {
-      "id": 1,
+      "id": "1",
       "msgv": "GV001",
       "hoGV": "Tran",
       "tenGV": "Thi B",
@@ -48,7 +48,7 @@
   ],
   "lophophan": [
     {
-      "id": 1,
+      "id": "1",
       "tenLHP": "Lap trinh React Native",
       "ngayTao": "2024-09-01",
       "hocKy": 1,
@@ -62,7 +62,7 @@
   ],
   "monhoc": [
     {
-      "id": 1,
+      "id": "1",
       "tenMH": "Lap trinh di dong",
       "tinChi": 3,
       "maBM": 1,
@@ -71,7 +71,7 @@
   ],
   "baiviet": [
     {
-      "id": 1,
+      "id": "1",
       "tieuDe": "Bai tap 1",
       "noiDung": "Viet app hello world",
       "ngayTao": "2024-09-05",
@@ -84,7 +84,7 @@
       "trangThai": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "tieuDe": "Bài tập chương 1",
       "noiDung": "Làm từ trang 1 đến 5",
       "loaiBV": 1,
@@ -92,11 +92,20 @@
       "ngayKetThuc": "2024-09-12",
       "gioKetThuc": "23:59:59",
       "trangThai": 1
+    },
+    {
+      "id": "43b6",
+      "maGV": "1",
+      "tieuDe": "Nộp bài",
+      "noiDung": "Hãy làm trong 10p",
+      "loaiBV": 1,
+      "ngayTao": "2025-06-11T16:31:39.795Z",
+      "hanNop": "2025-06-13T16:29:00.000Z"
     }
   ],
   "sinhvien_lhp": [
     {
-      "id": 1,
+      "id": "1",
       "maSV": 20231234,
       "maLHP": 1,
       "trangThai": 1
@@ -104,7 +113,7 @@
   ],
   "file": [
     {
-      "id": 1,
+      "id": "1",
       "tenFile": "bai1.docx",
       "tenVatLy": "123abc.docx",
       "ngayTao": "2024-09-05",
@@ -117,7 +126,7 @@
   ],
   "sinhvien_bailam": [
     {
-      "id": 1,
+      "id": "1",
       "maSV": 20231234,
       "maFile": 1,
       "maBV": 1,

@@ -19,6 +19,7 @@ export default function TabLayout() {
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
+        
           ios: {
             // Use a transparent background on iOS to show the blur effect
             position: "absolute",
@@ -32,7 +33,6 @@ export default function TabLayout() {
         options={{
           title: "Bài tập trên lớp",
           headerShown: false, // Hide header for this screen
-          
           tabBarStyle: {
             display: "none",
           },

@@ -1,7 +1,8 @@
 import CustomHeader from "@/components/CustomHeader";
+import { LopHocPhanProvider } from "@/context/_context";
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import { LopHocPhanProvider } from "./_context"; // 👈 wrap context ở đây
+// 👈 wrap context ở đây
 
 export default function Layout() {
   return (
@@ -53,7 +54,6 @@ export default function Layout() {
         }}
       /> */}
       </Tabs>
-      
     </LopHocPhanProvider>
   );
 }

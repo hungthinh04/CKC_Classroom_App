@@ -10,7 +10,7 @@ export default function LoginScreen() {
 
   const handleLogin = async () => {
     try {
-      const res = await fetch("http://192.168.1.101:3001/users");
+      const res = await fetch("http://192.168.1.102:3001/users");
       const users = await res.json();
 
       const user = users.find(
@@ -19,7 +19,7 @@ export default function LoginScreen() {
 
       if (user) {
         await login(user);
-        router.replace("/(tabs)/homeScreen");
+        router.replace("/(drawer)/(tabs)/homeScreen");
       } else {
         Alert.alert("Sai tài khoản hoặc mật khẩu");
       }

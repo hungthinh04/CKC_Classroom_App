@@ -1,20 +1,30 @@
+import { useLopHocPhan } from "@/context/_context";
+import { useAuth } from "@/stores/useAuth";
+import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import { useLopHocPhan } from "../_context";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function LopHocPhanDetail() {
   const { id, tenLHP } = useLopHocPhan();
   const [lop, setLop] = useState<any>(null);
   const [baiViet, setBaiViet] = useState<any[]>([]);
-
+const { user } = useAuth();
   useEffect(() => {
     if (!id) return;
 
     const fetchData = async () => {
       const [resLHP, resGV, resBV] = await Promise.all([
-        fetch(`http://192.168.1.101:3001/lophophan/${id}`),
-        fetch(`http://192.168.1.101:3001/giangvien`),
-        fetch(`http://192.168.1.101:3001/baiviet?maLHP=${id}`),
+        fetch(`http://192.168.1.102:3001/lophophan/${id}`),
+        fetch(`http://192.168.1.102:3001/giangvien`),
+        fetch(`http://192.168.1.102:3001/baiviet?maLHP=${id}`),
       ]);
 
       const lhp = await resLHP.json();
@@ -37,7 +47,7 @@ export default function LopHocPhanDetail() {
       {/* Header lớp */}
       <View style={styles.header}>
         <Image
-          source={require("../../../../assets/images/icon.png")}
+          source={require("../../../../../../assets/images/icon.png")}
           style={styles.coverImg}
         />
         <View style={styles.headerContent}>
@@ -52,7 +62,11 @@ export default function LopHocPhanDetail() {
       {/* Danh sách bài viết */}
       <Text style={styles.sectionTitle}>Bảng tin lớp học</Text>
       {baiViet.map((bv) => (
-        <View key={bv.id} style={styles.postCard}>
+        <TouchableOpacity
+          key={bv.id}
+          style={styles.postCard}
+          onPress={() => router.push(`../../../../(bv)/baiviet/${bv.id}`)}
+        >
           <View style={styles.postHeader}>
             <View style={styles.avatar}>
               <Text style={{ color: "#fff", fontWeight: "bold" }}>
@@ -68,8 +82,18 @@ export default function LopHocPhanDetail() {
           </View>
           <Text style={styles.postTitle}>{bv.tieuDe}</Text>
           <Text style={styles.postContent}>{bv.noiDung}</Text>
-        </View>
+        </TouchableOpacity>
       ))}
+
+      {user?.quyen === 0 && (
+  <TouchableOpacity
+    style={styles.fab}
+    onPress={() => router.push("/taobaiviet")}
+  >
+    <Ionicons name="add" size={28} color="white" />
+  </TouchableOpacity>
+)}
+
     </ScrollView>
   );
 }
@@ -143,4 +167,17 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: "#333",
   },
+  fab: {
+  position: "absolute",
+  bottom: 30,
+  right: 20,
+  backgroundColor: "#4f46e5",
+  width: 50,
+  height: 50,
+  borderRadius: 25,
+  alignItems: "center",
+  justifyContent: "center",
+  elevation: 5,
+},
+
 });

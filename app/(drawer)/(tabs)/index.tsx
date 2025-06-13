@@ -1,6 +1,6 @@
-import { Redirect } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { useAuth } from '../../stores/useAuth';
+import { Redirect } from "expo-router";
+import { useEffect, useState } from "react";
+import { useAuth } from "../../../stores/useAuth";
 
 export default function Index() {
   const { isLoggedIn, checkLogin } = useAuth();
@@ -16,5 +16,7 @@ export default function Index() {
 
   if (loading) return null;
 
-  return <Redirect href={isLoggedIn ? '/(tabs)/homeScreen' : '/(auth)/login'} />;
+  return (
+    <Redirect href={isLoggedIn ? "/(tabs)/homeScreen" : "/(auth)/login"} />
+  );
 }

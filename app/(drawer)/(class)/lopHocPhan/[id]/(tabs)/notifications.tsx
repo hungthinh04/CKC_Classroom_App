@@ -1,6 +1,6 @@
+import { useLopHocPhan } from "@/context/_context";
 import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { useLopHocPhan } from "../_context";
 
 type BaiViet = {
   id: number;
@@ -26,7 +26,7 @@ export default function BaiTapScreen() {
     const fetchTasks = async () => {
       try {
         const res = await fetch(
-          `http://192.168.1.101:3001/baiviet?maLHP=${id}&loaiBV=1`
+          `http://192.168.1.102:3001/baiviet?maLHP=${id}&loaiBV=1`
         );
         const data = await res.json();
         console.log("📦 Dữ liệu bài tập:", data);
@@ -43,6 +43,7 @@ export default function BaiTapScreen() {
     <FlatList
       data={tasks}
       keyExtractor={(item) => item?.id?.toString()}
+      
       renderItem={({ item }) => (
         <View style={styles.card}>
           <Text style={styles.title}>{item?.tieuDe || "Không có tiêu đề"}</Text>
